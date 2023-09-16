@@ -25,21 +25,17 @@ export class NoteController {
     }
 
     static async getMyNotes(request: express.Request, response: express.Response) {
-
         let db = getDatabase();
+        let notesCollection = db.collection("notes");
 
-        let notesCollection = db.collection("notes")
+        const username = request.query.username; // รับค่า username จาก query parameter
 
-        const uid = request.query.uid;
-
-        const data = await notesCollection.find({ creatorId: uid }).toArray();
-
+        const data = await notesCollection.find({ username: username }).toArray(); // ใช้ username ในการคิวรีข้อมูล
 
         response.status(200).json({
             "status": "success",
             "response": data
-        })
-
+        });
     }
 
     static async updateNote(request: express.Request, response: express.Response) {
