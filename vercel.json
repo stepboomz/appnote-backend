@@ -1,19 +1,25 @@
 {
     "version": 2,
-    "builds": [
-        {
-            "src": "app.ts",
-            "use": "@now/node"
-        }
-    ],
     "routes": [
         {
-            "src": "/v1/note/(.*)",
-            "dest": "/api/note/:1"
+            "src": "/v1/user/.*",
+            "dest": "/api/user.js"
+        },
+        {
+            "src": "/v1/note/.*",
+            "dest": "/api/note.js"
         },
         {
             "src": "/(.*)",
-            "dest": "/api/:1"
+            "dest": "/index.js"
         }
-    ]
+    ],
+    "functions": {
+        "api/user": {
+            "handler": "user.js"
+        },
+        "api/note": {
+            "handler": "note.js"
+        }
+    }
 }
