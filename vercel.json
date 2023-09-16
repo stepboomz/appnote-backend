@@ -1,0 +1,19 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "app.ts",
+            "use": "@now/node"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/v1/note/(.*)",
+            "dest": "/api/note/:1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/api/:1"
+        }
+    ]
+}
