@@ -15,7 +15,11 @@
         }
     ],
     "functions": {
-        "api/user": {},
-        "api/note": {}
+        "api/user": {
+            "handler": "userHandler"
+        },
+        "api/note": {
+            "handler": "noteHandler"
+        }
     }
 }
