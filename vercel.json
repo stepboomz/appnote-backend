@@ -3,15 +3,15 @@
     "routes": [
         {
             "src": "/v1/user/.*",
-            "dest": "/api/user.js"
+            "dest": "/router/user_router.ts"
         },
         {
             "src": "/v1/note/.*",
-            "dest": "/api/note.js"
+            "dest": "/router/note_router.ts"
         },
         {
             "src": "/(.*)",
-            "dest": "/index.js"
+            "dest": "src/app.ts"
         }
     ],
     "functions": {
